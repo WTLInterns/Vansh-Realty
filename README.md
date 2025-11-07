@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Real Estate App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern real estate application built with React.js, Tailwind CSS, and Framer Motion.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+src/
+├── components/
+│   ├── Header.js
+│   ├── HeroSection.js
+│   ├── LuxuryProjects.js
+│   ├── PropertyTypes.js
+│   ├── TopBuilders.js
+│   ├── TrendingProjects.js
+│   ├── AboutUs.js
+│   ├── Statistics.js
+│   ├── PropertyCollection.js
+│   ├── Footer.js
+│   └── FloatingActions.js
+├── App.js
+├── App.css
+├── index.js
+└── index.css
+```
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Responsive Design** - Works on mobile, tablet, and desktop
+2. **Modern UI** - Clean and professional interface with blue and orange color scheme
+3. **Animations** - Smooth transitions and hover effects using Framer Motion
+4. **Component-Based Architecture** - Organized and reusable components
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Components
 
-### `npm test`
+### Header
+- Sticky navigation bar with company logo
+- Navigation links for all major sections
+- Prominent "Enquire Now" button
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Hero Section
+- Full-width banner with tagline
+- Advanced property search form with filters
+- Location, property type, budget, and name search options
 
-### `npm run build`
+### Luxury Projects
+- Grid layout showcasing premium properties
+- Project cards with images, details, and action buttons
+- Hover animations for better user experience
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Property Types
+- Icon-based navigation for different property categories
+- Hover effects and transitions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Top Builders
+- Horizontal scrolling carousel of builder logos
+- Featured and top-rated badges
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Trending Projects
+- Horizontal slider of popular properties
+- Navigation arrows for browsing
 
-### `npm run eject`
+### About Us
+- Two-column layout with image and company information
+- "Read More" call-to-action button
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Statistics
+- Animated counters showing company achievements
+- Icons for visual representation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Property Collection
+- Carousel of premium property cards
+- Featured/New badges
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Footer
+- Company information and social media links
+- Quick navigation links
+- Contact information
+- Copyright notice
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Floating Actions
+- WhatsApp chat button
+- Enquire Now button
+- Scroll-to-top button
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React.js** - Frontend library
+- **Tailwind CSS** - Styling framework
+- **Framer Motion** - Animation library
+- **React Icons** - Icon library
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Color Palette
 
-### Code Splitting
+- Primary Blue: #0099cc
+- Accent Orange: #ff6600
+- Secondary colors: White, Light Grey
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Typography
 
-### Analyzing the Bundle Size
+- Primary: Poppins
+- Secondary: Montserrat
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Getting Started
 
-### Making a Progressive Web App
+1. Install dependencies:
+   ```
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Start the development server:
+   ```
+   npm start
+   ```
 
-### Advanced Configuration
+3. Build for production:
+   ```
+   npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Customization
 
-### Deployment
+To customize the color scheme, update the values in `tailwind.config.js`:
+```js
+theme: {
+  extend: {
+    colors: {
+      blue: {
+        500: '#0099cc',
+        600: '#0088b3',
+      },
+      orange: {
+        500: '#ff6600',
+      },
+    },
+  },
+},
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To customize fonts, update the Google Fonts import in `src/index.css` and the font family in `tailwind.config.js`.
