@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiTarget, FiEye, FiAward, FiUsers, FiCheckCircle, FiMapPin, FiPhone } from 'react-icons/fi';
+import EnquireModal from '../EnquireModal';
 
 const Overview = () => {
+  const [isEnquireModalOpen, setIsEnquireModalOpen] = useState(false);
+
   const missionData = [
     {
       icon: <FiTarget className="text-4xl text-yellow-500" />,
@@ -65,15 +68,13 @@ const Overview = () => {
             <div className="text-sm mb-4">Home / Overview</div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair">About Us</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-              "We're on a Mission to Change the View of the Real Estate Field."
-            </p>
-            <p className="text-lg max-w-4xl mx-auto mb-10">
-              Confused by too many listings, hidden fees, and endless calls? Let's fix that. Here's why smart home buyers are switching to PuneRealty.in.
+              At Vansh Realty Pune, our comprehensive real estate solutions cater to diverse client needs. Whether it's resale properties, rentals, under-construction projects, or commercial spaces, we leverage our industry expertise to help you make informed decisions. With a focus on delivering exceptional client service, our tailored investment guidance and personalized insights help you find properties perfectly aligned with your objectives. Established in 2012, Vansh Realty continues to deliver unparalleled property solutions with trust and transparency.
             </p>
             <motion.button 
               className="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition-all shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsEnquireModalOpen(true)}
             >
               Inquire Now
             </motion.button>
@@ -296,12 +297,16 @@ const Overview = () => {
               className="bg-white text-blue-900 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsEnquireModalOpen(true)}
             >
               Contact Us
             </motion.button>
           </motion.div>
         </div>
       </section>
+
+      {/* Enquire Modal */}
+      <EnquireModal isOpen={isEnquireModalOpen} onClose={() => setIsEnquireModalOpen(false)} />
     </div>
   );
 };

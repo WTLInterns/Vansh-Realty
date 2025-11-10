@@ -3,6 +3,10 @@ import { FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+// Import local images
+import HappyClientsImage from './assest/HappyCustomers.png';
+import VideoImage from './assest/Video.png';
+
 const HappyClientsPage = () => {
   const navigate = useNavigate();
 
@@ -10,57 +14,57 @@ const HappyClientsPage = () => {
   const testimonials = [
     { 
       id: 1, 
-      name: "Rajesh Mehta", 
-      location: "Mumbai", 
+      name: "Shubham Handge", 
+      location: "Pune", 
       project: "VTP Bellissimo Hinjewadi",
       feedback: "Pune Realty made our property investment seamless. Their team's expertise and attention to detail were impressive. Highly recommended for both NRIs and local buyers!",
       rating: 5,
-      image: "https://randomuser.me/api/portraits/men/32.jpg"
+      image: HappyClientsImage
     },
     { 
       id: 2, 
-      name: "Priya Sharma", 
+      name: "Shubham Jagtap", 
       location: "Pune", 
       project: "Lodha World Crest, Kharadi",
       feedback: "As a first-time homebuyer, I was overwhelmed with choices. The team at Pune Realty guided me through every step, ensuring I found the perfect home within my budget.",
       rating: 5,
-      image: "https://randomuser.me/api/portraits/women/44.jpg"
+      image: VideoImage
     },
     { 
       id: 3, 
-      name: "Amit Patel", 
+      name: "Saurab Ganjare", 
       location: "USA", 
       project: "Godrej Imperium, Wakad",
       feedback: "Being based in the US, investing in Indian real estate seemed daunting. Pune Realty's NRI services made the entire process smooth. Their virtual tours were incredibly helpful.",
       rating: 4,
-      image: "https://randomuser.me/api/portraits/men/67.jpg"
+      image: HappyClientsImage
     },
     { 
       id: 4, 
-      name: "Sneha Desai", 
+      name: "Aakashida Negi", 
       location: "Hyderabad", 
       project: "Kolte Patil Crimson, Balewadi",
       feedback: "I've worked with several real estate consultants, but none matched the professionalism and market knowledge of Pune Realty. They truly understand Pune's property landscape.",
       rating: 5,
-      image: "https://randomuser.me/api/portraits/women/68.jpg"
+      image: VideoImage
     },
     { 
       id: 5, 
-      name: "Vikram Singh", 
+      name: "Arbaj Shiekh", 
       location: "Canada", 
       project: "Shapoorji Pallonji, Hinjewadi",
       feedback: "The documentation support provided by Pune Realty was exceptional. They handled all the legal complexities, allowing me to focus on other aspects of my relocation.",
       rating: 5,
-      image: "https://randomuser.me/api/portraits/men/22.jpg"
+      image: HappyClientsImage
     },
     { 
       id: 6, 
-      name: "Anjali Rao", 
+      name: "Jaywant Mahala", 
       location: "Bangalore", 
       project: "Brigade Exotica, Viman Nagar",
       feedback: "Their investment advice proved invaluable. I've seen significant returns on properties they recommended. Their market insights are second to none.",
       rating: 5,
-      image: "https://randomuser.me/api/portraits/women/32.jpg"
+      image: VideoImage
     }
   ];
 
@@ -79,7 +83,7 @@ const HappyClientsPage = () => {
         {/* Header with Back Button */}
         <div className="flex items-center mb-12">
           <button 
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate('/media')}
             className="flex items-center text-blue-800 hover:text-amber-500 transition-colors duration-300"
           >
             <FiChevronLeft className="mr-2" />

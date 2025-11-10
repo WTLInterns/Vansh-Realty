@@ -3,6 +3,10 @@ import { FiPlay, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+// Import local images
+import VideoThumbnail from './assest/Video.png';
+import HappyCustomersThumbnail from './assest/HappyCustomers.png';
+
 const VideosPage = () => {
   const navigate = useNavigate();
 
@@ -10,47 +14,54 @@ const VideosPage = () => {
   const videos = [
     { 
       id: 1, 
-      thumbnail: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: VideoThumbnail, 
       title: "Luxury Living Experience", 
       duration: "3:45",
-      description: "Take a tour of our premium luxury apartments with top-notch amenities"
+      description: "Take a tour of our premium luxury apartments with top-notch amenities",
+      youtubeUrl: "https://youtube.com/shorts/UEcHk-TR3mM?si=fMNDUGJhAWkU0l17"
     },
     { 
       id: 2, 
-      thumbnail: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: HappyCustomersThumbnail, 
       title: "Project Walkthrough", 
       duration: "5:20",
       description: "Complete walkthrough of our newest residential project"
     },
     { 
       id: 3, 
-      thumbnail: "https://images.unsplash.com/photo-1560448205-2d94a21c5b50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: VideoThumbnail, 
       title: "Interior Design Showcase", 
       duration: "4:15",
       description: "Explore the modern interior designs of our properties"
     },
     { 
       id: 4, 
-      thumbnail: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: HappyCustomersThumbnail, 
       title: "Neighborhood Tour", 
       duration: "6:30",
       description: "Discover the vibrant neighborhood around our properties"
     },
     { 
       id: 5, 
-      thumbnail: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: VideoThumbnail, 
       title: "Construction Progress", 
       duration: "2:50",
       description: "See the construction progress of our upcoming projects"
     },
     { 
       id: 6, 
-      thumbnail: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      thumbnail: HappyCustomersThumbnail, 
       title: "Amenities Tour", 
       duration: "4:05",
       description: "Explore the world-class amenities in our residential complexes"
     }
   ];
+
+  const handleVideoClick = (video) => {
+    if (video.youtubeUrl) {
+      window.open(video.youtubeUrl, '_blank');
+    }
+  };
 
   return (
     <div className="min-h-screen pt-20 bg-gray-50">
@@ -58,7 +69,7 @@ const VideosPage = () => {
         {/* Header with Back Button */}
         <div className="flex items-center mb-12">
           <button 
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate('/media')}
             className="flex items-center text-blue-800 hover:text-amber-500 transition-colors duration-300"
           >
             <FiChevronLeft className="mr-2" />
@@ -97,11 +108,12 @@ const VideosPage = () => {
           {videos.map((video, index) => (
             <motion.div
               key={video.id}
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-white cursor-pointer"
+              className={`relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-white cursor-pointer ${video.youtubeUrl ? 'ring-2 ring-amber-500 ring-opacity-50' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
+              onClick={() => handleVideoClick(video)}
             >
               {/* Video Thumbnail */}
               <div className="h-56 overflow-hidden relative">
@@ -120,6 +132,15 @@ const VideosPage = () => {
                 <div className="absolute bottom-4 right-4 bg-black/60 text-white text-sm px-3 py-1 rounded-full font-medium">
                   {video.duration}
                 </div>
+                {/* YouTube Indicator */}
+                {video.youtubeUrl && (
+                  <div className="absolute top-4 left-4 bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold flex items-center">
+                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                    </svg>
+                    YouTube
+                  </div>
+                )}
               </div>
               
               {/* Video Info */}

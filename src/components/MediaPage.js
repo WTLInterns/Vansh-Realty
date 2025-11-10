@@ -2,6 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// Import local images
+import VideoImage from './assest/Video.png';
+import HappyClientsImage from './assest/HappyCustomers.png';
+
 const MediaPage = () => {
   const navigate = useNavigate();
 
@@ -10,14 +14,14 @@ const MediaPage = () => {
       id: 1,
       title: "Videos",
       description: "Explore our property walkthroughs and project highlights",
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80",
+      image: VideoImage,
       onClick: () => navigate('/media/videos')
     },
     {
       id: 2,
       title: "Happy Clients",
       description: "Read testimonials from our satisfied customers",
-      image: "https://images.unsplash.com/photo-1560448205-2d94a21c5b50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80",
+      image: HappyClientsImage,
       onClick: () => navigate('/media/testimonials')
     }
   ];
@@ -26,82 +30,101 @@ const MediaPage = () => {
     <div className="min-h-screen pt-20 bg-gray-50">
       <div className="container mx-auto px-4 py-12">
         {/* Page Title with Background Image */}
-        <div className="text-center mb-16 relative rounded-2xl overflow-hidden">
+        <div className="text-center mb-16 relative rounded-3xl overflow-hidden shadow-2xl">
           {/* Background image for the heading section */}
           <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')" }}
+            className="absolute inset-0 bg-cover bg-center transform scale-105"
+            style={{ backgroundImage: `url(${VideoImage})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-700 opacity-80"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 opacity-90"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
           </div>
           
           {/* Content overlay */}
-          <div className="relative py-20 px-4">
+          <div className="relative py-24 px-4">
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-white mb-4"
-              initial={{ opacity: 0, y: -20 }}
+              className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+              initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
             >
-              Media
+              Media Gallery
             </motion.h1>
+            <motion.p 
+              className="text-xl text-blue-100 max-w-2xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              Discover our projects through immersive videos and client experiences
+            </motion.p>
             <motion.div 
-              className="w-24 h-1 bg-amber-500 mx-auto"
+              className="w-32 h-1 bg-amber-500 mx-auto rounded-full"
               initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              animate={{ width: 128 }}
+              transition={{ duration: 1, delay: 0.4 }}
             ></motion.div>
           </div>
         </div>
 
         {/* Media Sections Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {mediaSections.map((section, index) => (
             <motion.div
               key={section.id}
-              className="relative h-96 rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
-              initial={{ opacity: 0, y: 30 }}
+              className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.2 }}
               onClick={section.onClick}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -15 }}
               whileTap={{ scale: 0.98 }}
             >
               {/* Background Image */}
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-out"
                 style={{ backgroundImage: `url(${section.image})` }}
-              ></div>
-              
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-500"></div>
+              >
+                {/* Enhanced overlay effects */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60"></div>
+              </div>
               
               {/* Content */}
-              <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-                <motion.h2 
-                  className="text-3xl font-bold mb-2"
+              <div className="relative z-10 h-full flex flex-col justify-end p-10 text-white">
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
+                  transition={{ duration: 0.7, delay: 0.5 + index * 0.2 }}
                 >
-                  {section.title}
-                </motion.h2>
-                <motion.p 
-                  className="text-lg opacity-90"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
-                >
-                  {section.description}
-                </motion.p>
-                
-                {/* Hover Indicator */}
-                <motion.div 
-                  className="mt-6 w-12 h-1 bg-amber-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: 48 }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
+                  <motion.h2 
+                    className="text-4xl font-bold mb-4 tracking-tight"
+                  >
+                    {section.title}
+                  </motion.h2>
+                  <motion.p 
+                    className="text-xl opacity-90 mb-8 max-w-lg"
+                  >
+                    {section.description}
+                  </motion.p>
+                  
+                  {/* Call to action button */}
+                  <motion.button
+                    className="inline-flex items-center px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Explore Now
+                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </motion.button>
+                </motion.div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute top-6 right-6 w-16 h-16 rounded-full bg-amber-500/20 backdrop-blur-sm flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-amber-500/30"></div>
               </div>
             </motion.div>
           ))}

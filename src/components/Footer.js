@@ -27,6 +27,14 @@ const Footer = () => {
     { name: 'Disclaimer', href: '#' }
   ];
 
+  // Social media URLs - replace with actual URLs
+  const socialLinks = {
+    linkedin: "https://www.linkedin.com/company/vansh-realty",
+    instagram: "https://www.instagram.com/vansh_realty",
+    facebook: "https://www.facebook.com/vansh.realty",
+    whatsapp: "https://wa.me/919595969262"
+  };
+
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
@@ -44,16 +52,16 @@ const Footer = () => {
               At Vansh Realty Pune, our comprehensive real estate solutions cater to diverse client needs. Whether it's resale properties, rentals, under-construction projects, or commercial spaces, we leverage our industry expertise to help you make informed decisions. With a focus on delivering exceptional client service, our tailored investment guidance and personalized insights help you find properties perfectly aligned with your objectives. Established in 2012, Vansh Realty continues to deliver unparalleled property solutions with trust and transparency.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-500 transition-colors">
                 <FaLinkedin size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-500 transition-colors">
                 <FaInstagram size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-500 transition-colors">
                 <FaFacebook size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+              <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-500 transition-colors">
                 <FaWhatsapp size={18} />
               </a>
             </div>
@@ -115,7 +123,7 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 text-center text-gray-500">
-          <p className="text-xs">© Vansh Realty. All Rights Reserved. Designed & Developed by Prop Innovations & Solutions Pvt. Ltd.</p>
+          <p className="text-xs">© Vansh Realty. All Rights Reserved. Designed & Developed by WebUtsav Pvt. Ltd.</p>
         </div>
       </div>
     </footer>

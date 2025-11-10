@@ -149,9 +149,14 @@ const EnquireModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSuccess = () => {
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
+  const handleSuccess = async () => {
+    // Simple solution: Show an alert with form data and send to console
+    console.log('Form submitted with data:', formData);
+    alert(`Thank you ${formData.fullName}! We'll contact you soon at ${formData.mobile} or ${formData.email}`);
+    
+    // In a real application, you would send this data to your backend
+    // For now, we'll just log it and show a success message
+    
     // Reset form
     setTimeout(() => {
       setFormData({

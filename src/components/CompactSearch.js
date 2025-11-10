@@ -14,19 +14,16 @@ const CompactSearch = () => {
     { 
       id: 1, 
       label: 'All Developers', 
-      icon: '🏗️',
       options: ['All Developers', 'Vansh Realty', 'Prestige Group', 'Godrej Properties', 'Tata Housing']
     },
     { 
       id: 2, 
       label: 'All Locations', 
-      icon: '📍',
       options: ['All Locations', 'Kharadi', 'Hinjewadi', 'Baner', 'Wakad', 'Pimple Saudagar']
     },
     { 
       id: 3, 
       label: 'All Projects', 
-      icon: '🏢',
       options: ['All Projects', 'Imperium Alpha', 'Sky Vista', 'Green Acres', 'Royal Enclave']
     }
   ];
@@ -58,11 +55,10 @@ const CompactSearch = () => {
           whileHover={{ y: -2 }}
         >
           <div className="flex items-center p-3">
-            <span className="text-lg mr-2">{searchCards[0].icon}</span>
             <select 
               value={selectedOptions[1]}
               onChange={(e) => handleSelectChange(1, e.target.value)}
-              className="w-full bg-transparent focus:outline-none text-sm"
+              className="w-full bg-transparent focus:outline-none text-base font-medium"
             >
               {searchCards[0].options.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
@@ -77,11 +73,10 @@ const CompactSearch = () => {
           whileHover={{ y: -2 }}
         >
           <div className="flex items-center p-3">
-            <span className="text-lg mr-2">{searchCards[1].icon}</span>
             <select 
               value={selectedOptions[2]}
               onChange={(e) => handleSelectChange(2, e.target.value)}
-              className="w-full bg-transparent focus:outline-none text-sm"
+              className="w-full bg-transparent focus:outline-none text-base font-medium"
             >
               {searchCards[1].options.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
@@ -96,11 +91,10 @@ const CompactSearch = () => {
           whileHover={{ y: -2 }}
         >
           <div className="flex items-center p-3">
-            <span className="text-lg mr-2">{searchCards[2].icon}</span>
             <select 
               value={selectedOptions[3]}
               onChange={(e) => handleSelectChange(3, e.target.value)}
-              className="w-full bg-transparent focus:outline-none text-sm"
+              className="w-full bg-transparent focus:outline-none text-base font-medium"
             >
               {searchCards[2].options.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
@@ -115,13 +109,12 @@ const CompactSearch = () => {
           whileHover={{ y: -2 }}
         >
           <div className="flex items-center p-3">
-            <span className="text-lg mr-2">🔍</span>
             <input 
               type="text" 
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}
               placeholder="Search by Project Name" 
-              className="w-full bg-transparent focus:outline-none text-sm"
+              className="w-full bg-transparent focus:outline-none text-base font-medium"
             />
           </div>
         </motion.div>
@@ -133,7 +126,7 @@ const CompactSearch = () => {
         >
           <button 
             type="submit"
-            className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all text-sm shadow-md hover:shadow-lg"
+            className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all text-base shadow-md hover:shadow-lg"
           >
             Search
           </button>

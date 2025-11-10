@@ -142,6 +142,7 @@ function App() {
               <TrendingProjects />
               <Statistics />
               <PropertyCollection />
+              {/* Removed EmailJSTest component */}
               <Footer />
               <FloatingActions />
             </>
