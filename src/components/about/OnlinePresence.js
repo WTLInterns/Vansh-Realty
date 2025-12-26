@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGlobe, FiYoutube, FiInstagram, FiFacebook, FiFileText, FiTrendingUp, FiMapPin, FiBriefcase } from 'react-icons/fi';
+import { FEATURE_FLAGS } from '../../config/featureFlags';
 
 const OnlinePresence = () => {
+  // Return null if the page is disabled
+  if (!FEATURE_FLAGS.ONLINE_PRESENCE_PAGE) {
+    return null;
+  }
+  
   const platforms = [
     {
       icon: <FiGlobe className="text-3xl text-yellow-500" />,

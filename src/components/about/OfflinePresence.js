@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiUsers, FiTrendingUp, FiHome, FiAward, FiBriefcase, FiBarChart2, FiFileText, FiPhone, FiClock } from 'react-icons/fi';
+import { FEATURE_FLAGS } from '../../config/featureFlags';
 
 const OfflinePresence = () => {
+  // Return null if the page is disabled
+  if (!FEATURE_FLAGS.OFFLINE_PRESENCE_PAGE) {
+    return null;
+  }
+  
   const serviceAreas = [
     { name: "Bavdhan", label: "Under Construction Hotspot" },
     { name: "Pashan", label: "Upcoming Locality" },

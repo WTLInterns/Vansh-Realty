@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGlobe, FiVideo, FiFileText, FiHome, FiBriefcase, FiCheckCircle, FiPhone, FiMapPin, FiUser } from 'react-icons/fi';
+import { FEATURE_FLAGS } from '../../config/featureFlags';
 
 const NriServices = () => {
+  // Return null if the page is disabled
+  if (!FEATURE_FLAGS.NRI_SERVICES_PAGE) {
+    return null;
+  }
+  
   const services = [
     { icon: <FiHome className="text-3xl text-yellow-500" />, title: "Residential Properties", description: "Under construction & ready possession flats" },
     { icon: <FiBriefcase className="text-3xl text-yellow-500" />, title: "Commercial Spaces", description: "Premium offices and business centers" },

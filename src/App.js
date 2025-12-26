@@ -150,6 +150,7 @@ function App() {
           <Route path="/about/*" element={<AboutLayout />}>
             <Route index element={<Overview />} />
             <Route path="overview" element={<Overview />} />
+            {/* Conditional routes for hidden pages - feature flags are defined in each component */}
             <Route path="online-presence" element={<OnlinePresence />} />
             <Route path="offline-presence" element={<OfflinePresence />} />
             <Route path="nri-services" element={<NriServices />} />

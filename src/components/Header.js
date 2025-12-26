@@ -92,24 +92,6 @@ const Header = () => {
                     Overview
                   </button>
                   <button 
-                    onClick={() => { navigate('/about/online-presence'); setIsAboutUsDropdownOpen(false); }}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-500"
-                  >
-                    Online Presence
-                  </button>
-                  <button 
-                    onClick={() => { navigate('/about/offline-presence'); setIsAboutUsDropdownOpen(false); }}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-500"
-                  >
-                    Offline Presence
-                  </button>
-                  <button 
-                    onClick={() => { navigate('/about/nri-services'); setIsAboutUsDropdownOpen(false); }}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-500"
-                  >
-                    NRI Services
-                  </button>
-                  <button 
                     onClick={() => { navigate('/about/testimonials'); setIsAboutUsDropdownOpen(false); }}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-500"
                   >
@@ -189,15 +171,6 @@ const Header = () => {
                   <div className="pl-4 py-2 space-y-2" style={{ animation: 'fadeIn 0.3s ease-out forwards' }}>
                     <button onClick={() => { navigate('/about/overview'); setIsAboutUsDropdownOpen(false); setIsMobileMenuOpen(false); }} className="block w-full text-left text-gray-700 hover:text-amber-500">
                       Overview
-                    </button>
-                    <button onClick={() => { navigate('/about/online-presence'); setIsAboutUsDropdownOpen(false); setIsMobileMenuOpen(false); }} className="block w-full text-left text-gray-700 hover:text-amber-500">
-                      Online Presence
-                    </button>
-                    <button onClick={() => { navigate('/about/offline-presence'); setIsAboutUsDropdownOpen(false); setIsMobileMenuOpen(false); }} className="block w-full text-left text-gray-700 hover:text-amber-500">
-                      Offline Presence
-                    </button>
-                    <button onClick={() => { navigate('/about/nri-services'); setIsAboutUsDropdownOpen(false); setIsMobileMenuOpen(false); }} className="block w-full text-left text-gray-700 hover:text-amber-500">
-                      NRI Services
                     </button>
                     <button onClick={() => { navigate('/about/testimonials'); setIsAboutUsDropdownOpen(false); setIsMobileMenuOpen(false); }} className="block w-full text-left text-gray-700 hover:text-amber-500">
                       Testimonials
