@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiPhone, FiMail, FiGlobe } from 'react-icons/fi';
 import logo from './assest/logo.jpeg';
@@ -19,13 +19,25 @@ const SlideButton = ({ onSuccess }) => {
     }
   }, []);
 
-  const handleStart = (clientX) => {
+  const handleSuccess = useCallback(() => {
+    setIsDragging(false);
+    setIsSuccess(true);
+    setShowSuccess(true);
+    onSuccess();
+    
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+  }, [onSuccess]);
+
+  const handleStart = useCallback((clientX) => {
     if (isSuccess) return;
     setIsDragging(true);
     startX.current = clientX - position;
-  };
+  }, [isSuccess, position]);
 
-  const handleMove = (clientX) => {
+  const handleMove = useCallback((clientX) => {
     if (!isDragging || isSuccess) return;
     
     const newPosition = clientX - startX.current;
@@ -37,9 +49,9 @@ const SlideButton = ({ onSuccess }) => {
     if (boundedPosition >= trackWidth.current - 5) {
       handleSuccess();
     }
-  };
+  }, [isDragging, isSuccess, handleSuccess]);
 
-  const handleEnd = () => {
+  const handleEnd = useCallback(() => {
     if (isSuccess) return;
     setIsDragging(false);
     
@@ -47,27 +59,15 @@ const SlideButton = ({ onSuccess }) => {
     if (position < trackWidth.current - 5) {
       setPosition(0);
     }
-  };
+  }, [isSuccess, position]);
 
-  const handleSuccess = () => {
-    setIsDragging(false);
-    setIsSuccess(true);
-    setShowSuccess(true);
-    onSuccess();
-    
-    // Hide success message after 3 seconds
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000);
-  };
+  const handleMouseDown = useCallback((e) => handleStart(e.clientX), [handleStart]);
+  const handleMouseMove = useCallback((e) => handleMove(e.clientX), [handleMove]);
+  const handleMouseUp = useCallback(() => handleEnd(), [handleEnd]);
 
-  const handleMouseDown = (e) => handleStart(e.clientX);
-  const handleMouseMove = (e) => handleMove(e.clientX);
-  const handleMouseUp = () => handleEnd();
-
-  const handleTouchStart = (e) => handleStart(e.touches[0].clientX);
-  const handleTouchMove = (e) => handleMove(e.touches[0].clientX);
-  const handleTouchEnd = () => handleEnd();
+  const handleTouchStart = useCallback((e) => handleStart(e.touches[0].clientX), [handleStart]);
+  const handleTouchMove = useCallback((e) => handleMove(e.touches[0].clientX), [handleMove]);
+  const handleTouchEnd = useCallback(() => handleEnd(), [handleEnd]);
 
   useEffect(() => {
     if (isDragging) {
@@ -83,7 +83,7 @@ const SlideButton = ({ onSuccess }) => {
         window.removeEventListener('touchend', handleTouchEnd);
       };
     }
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove, handleMouseUp, handleTouchEnd, handleTouchMove]);
 
   return (
     <div className="w-full">

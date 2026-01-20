@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiTarget, FiEye, FiAward, FiUsers, FiCheckCircle, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FiTarget, FiEye, FiAward, FiUsers } from 'react-icons/fi';
 import EnquireModal from '../EnquireModal';
 
 const Overview = () => {

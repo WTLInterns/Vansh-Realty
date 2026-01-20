@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiSearch, FiCalendar, FiTag, FiChevronRight, FiMapPin } from 'react-icons/fi';
+import { FiSearch, FiCalendar, FiChevronRight } from 'react-icons/fi';
 
 const Blogs = () => {
   const blogPosts = [
@@ -143,10 +143,10 @@ const Blogs = () => {
                 <ul className="space-y-2">
                   {categories.map((category, index) => (
                     <li key={index}>
-                      <a href="#" className="flex items-center text-gray-700 hover:text-amber-500 transition-colors">
+                      <button className="flex items-center text-gray-700 hover:text-amber-500 transition-colors">
                         <FiChevronRight className="text-amber-500 mr-2" />
                         <span>{category}</span>
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -157,13 +157,12 @@ const Blogs = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Popular Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {popularTags.map((tag, index) => (
-                    <a 
+                    <button 
                       key={index} 
-                      href="#" 
                       className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-amber-500 hover:text-white transition-colors"
                     >
                       {tag}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>

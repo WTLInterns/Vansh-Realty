@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiVideo, FiFileText, FiHome, FiBriefcase, FiCheckCircle, FiPhone, FiMapPin, FiUser } from 'react-icons/fi';
+import { FiGlobe, FiVideo, FiFileText, FiHome, FiBriefcase, FiUser } from 'react-icons/fi';
 import { FEATURE_FLAGS } from '../../config/featureFlags';
 
 const NriServices = () => {
